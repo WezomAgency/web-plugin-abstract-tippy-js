@@ -1,7 +1,7 @@
 {
   "name": "web-plugin-abstract-tippy-js",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Abstract class for fast initialization tippy.js, based on web-plugin-interface",
   "main": "index.js",
   "scripts": {
     "test": "eslint ./index.js --fix"
@@ -10,9 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/dutchenkoOleg/web-plugin-abstract-tippy-js.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "anstract",
+    "tippy.js",
+    "tooltip",
+    "web-plugin-interface"
+  ],
+  "author": "Oleg Dutchenko <dutchenko.o.dev@gmail.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dutchenkoOleg/web-plugin-abstract-tippy-js/issues"
   },
