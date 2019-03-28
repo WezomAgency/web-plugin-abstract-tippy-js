@@ -1,0 +1,27 @@
+{
+  "name": "web-plugin-abstract-tippy-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint ./index.js --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dutchenkoOleg/web-plugin-abstract-tippy-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dutchenkoOleg/web-plugin-abstract-tippy-js/issues"
+  },
+  "homepage": "https://github.com/dutchenkoOleg/web-plugin-abstract-tippy-js#readme",
+  "devDependencies": {
+    "eslint-config-wezom-relax": "^1.1.0"
+  },
+  "dependencies": {
+    "tippy.js": "^4.2.1",
+    "web-plugin-interface": "^2.0.2"
+  }
+}
