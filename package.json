@@ -1,6 +1,6 @@
 {
   "name": "web-plugin-abstract-tippy-js",
-  "version": "1.0.1",
+  "version": "3.0.0",
   "description": "Abstract class for fast initialization tippy.js, based on web-plugin-interface",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dutchenkoOleg/web-plugin-abstract-tippy-js.git"
+    "url": "git+https://github.com/WezomAgency/web-plugin-abstract-tippy-js.git"
   },
   "keywords": [
     "anstract",
@@ -19,14 +19,14 @@
   "author": "Oleg Dutchenko <dutchenko.o.dev@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dutchenkoOleg/web-plugin-abstract-tippy-js/issues"
+    "url": "https://github.com/WezomAgency/web-plugin-abstract-tippy-js/issues"
   },
-  "homepage": "https://github.com/dutchenkoOleg/web-plugin-abstract-tippy-js#readme",
+  "homepage": "https://github.com/WezomAgency/web-plugin-abstract-tippy-js#readme",
   "devDependencies": {
     "eslint-config-wezom-relax": "^1.1.0"
   },
   "dependencies": {
     "tippy.js": "^4.2.1",
-    "web-plugin-interface": "^2.0.2"
+    "web-plugin-interface": "^3.0.3"
   }
 }
