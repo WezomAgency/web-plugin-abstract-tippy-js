@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @module AbstractSlickCarousel
+ * @module AbstractTippy
  * @author OlegDutchenko <dutchenko.o.dev@gmail.com>
  */
 
@@ -16,30 +16,63 @@ import { WebPluginInterface } from 'web-plugin-interface';
 // Public
 // ----------------------------------------
 
+/**
+ * @implements WebPluginInterface
+ */
 export class AbstractTippy extends WebPluginInterface {
 	/**
 	 * @param {HTMLElement} element
 	 * @param {TippySettings} clientSettings
+	 * @param {TippyProps} clientProps
 	 */
-	constructor (element, clientSettings) {
+	constructor (element, clientSettings, clientProps) {
 		super();
-		/** @type {TippySettings} */
-		this.settings = {};
 		this.element = element;
+
+		/**
+		 * @type {Tippy}
+		 */
+		this.tippy = null;
+
+		/**
+		 * @type {TippyProps}
+		 */
+		this.props = {};
+		this.clientProps = clientProps;
+
+		/**
+		 * @type {TippySettings}
+		 */
+		this.settings = {};
 		this.clientSettings = clientSettings;
-		this.tooltip = null;
+	}
+
+	/**
+	 * @type {TippyProps}
+	 */
+	get defaultProps () {
+		return super.defaultProps;
+	}
+
+	/**
+	 * @type {TippySettings}
+	 */
+	get defaultSettings () {
+		return super.defaultSettings;
 	}
 
 	/** @protected */
 	_setup () {
-		this.settings = Object.assign(this.defaults, this.clientSettings);
-		if (this.settings._contentElement) {
-			let contentElement = document.querySelector(this.settings._contentElement);
+		this.props = Object.assign(this.defaultProps, this.clientProps);
+		this.settings = Object.assign(this.defaultSettings, this.clientSettings);
+		if (this.props.contentElement) {
+			let contentElement = document.querySelector(this.props.contentElement);
 			if (contentElement !== null) {
 				this.settings.content = contentElement.innerHTML;
 			}
 		}
-		delete this.settings._contentElement;
+		delete this.clientProps;
+		delete this.clientSettings;
 	}
 
 	/** @protected */
@@ -59,34 +92,13 @@ export class AbstractTippy extends WebPluginInterface {
 		this.tooltip = tippy(this.element, this.settings);
 		this._afterInitialize();
 	}
-
-	/**
-	 * @public
-	 * @return {Object}
-	 */
-	get defaults () {
-		return super.defaults;
-	}
 }
 
 /**
- * @typedef {Object} TippySettings
- * @property {boolean} [_contentElement] - true
- * @property {boolean} [a11y] - true
- * @property {boolean} [allowHTML] - true
- * @property {boolean} [animateFill] - true
- * @property {string} [animation] - "shift-away | shift-toward | fade | scale | perspective"
- * @property {Element|Function} [appendTo] - document.body
- * @property {boolean} [arrow] - false
- * @property {string} [arrowType] - "sharp | round"
- * @property {string} [arrowTransform] - " | ~scaleX(2)"
- * @property {string|Element} [content] - ""
- * @property {number|number[]} [delay] - [0, 20] ~ [show, hide]
- * @property {number|number[]} [duration] - [275, 50] ~ [show, hide]
- * @property {number} [distance] - 10
- * @property {boolean} [flip] - true
- * @property {string|string[]} [flipBehavior] - "flip"
- * @property {boolean|string} [followCursor] - false | "vertical" | "horizontal"
- * @property {string} [theme] - "dark" | "light" | "light-border"
- * @property {string} [trigger] - "mouseenter" | "focus" | "click" | "manual"
+ * @typedef {Options} TippySettings
+ */
+
+/**
+ * @typedef {Object} TippyProps
+ * @property {string} [contentElement] - CSS selector
  */
