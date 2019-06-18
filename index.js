@@ -81,6 +81,11 @@ export class AbstractTippy extends WebPluginInterface {
 	}
 
 	/** @protected */
+	_initialize () {
+		this.tooltip = tippy(this.element, this.settings);
+	}
+
+	/** @protected */
 	_afterInitialize () {
 		super._afterInitialize();
 	}
@@ -89,7 +94,7 @@ export class AbstractTippy extends WebPluginInterface {
 	initialize () {
 		this._setup();
 		this._beforeInitialize();
-		this.tooltip = tippy(this.element, this.settings);
+		this._initialize();
 		this._afterInitialize();
 	}
 }
