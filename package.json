@@ -1,6 +1,6 @@
 {
   "name": "web-plugin-abstract-tippy-js",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Abstract class for fast initialization tippy.js, based on web-plugin-interface",
   "main": "index.js",
   "scripts": {
